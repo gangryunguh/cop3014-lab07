@@ -45,7 +45,7 @@ void getPrices(PriceType table, int& numOfRows, int& numOfCols)
 	cout << "Please input the number of rows from 1 to " << MAXROWS << endl;
 	cin >> numOfRows;
 
-	cout << "Please input the number of columns from 1 to " << MAXCOLS << endl;
+    cout << "Please input the number of columns from 1 to " << MAXCOLS << endl;
 	cin >> numOfCols;
 
 	for (int row = 0; row < numOfRows; row++)
@@ -53,6 +53,9 @@ void getPrices(PriceType table, int& numOfRows, int& numOfCols)
 		for (int col = 0; col < numOfCols; col++)
 		{
 			// Fill in the code to read and store the next value in the array
+            cout << "Please input the value to be stored into table[" << row <<
+                 "][" << col << "] " << endl;
+			cin >> table[row][col];
 		}
 	}
 }
@@ -76,6 +79,8 @@ void printPrices(PriceType table, int numOfRows, int numOfCols)
 		for (int col = 0; col < numOfCols; col++)
 		{
 			// Fill in the code to print the table
+			cout << table[row][col] << "  " << flush;
 		}
+		cout << endl;
 	}
 }

@@ -25,15 +25,19 @@ int main()
 
 	// Read in the values into the array 
 	pos = 0;
-	cout << "Please input a grade from 1 to 100, (or -99 to stop)" << endl;
-	cin >> grades[pos];
+    cout << "Please input a grade from 1 to 100, (or -99 to stop)" << endl;
+    cin >> grades[pos];
 
 	while (grades[pos] != -99)
 	{
 		// Fill in the code to read the grades
+        pos++;
+		cout << "Please input a grade from 1 to 100, (or -99 to stop)" << endl;
+        cin >> grades[pos];
+
 	}
 
-	numberOfGrades = ;	// Fill blank with appropriate identifier
+	numberOfGrades = pos;	// Fill blank with appropriate identifier
 
 	// call to the function to find average
 	avgOfGrades = findAverage(grades, numberOfGrades);
@@ -42,10 +46,11 @@ int main()
 
 	// Fill in the call to the function that calculates highest grade
 
-	cout << endl << "The highest grade is " << highestGrade << endl;
+    cout << endl << "The highest grade is " << findHighest(grades, numberOfGrades) << endl;
 
 	// Fill in the call to the function that calculates lowest grade
-	// Fill in code to write the lowest to the screen
+    // Fill in code to write the lowest to the screen
+    cout << endl << "The lowest grade is " << findLowest(grades, numberOfGrades) << endl;
 
 	return 0;
 }
@@ -83,7 +88,13 @@ float findAverage(const GradeType	array, int size)
 
 int	findHighest(const GradeType array, int size)
 {
-	// Fill in the code for this function
+    // Fill in the code for this function
+    int highest = INT_MIN;
+    for (int i = 0; i < size; i++)
+        if (array[i] > highest)
+            highest = array[i];
+
+    return highest;
 }
 
 //****************************************************************************
@@ -99,5 +110,14 @@ int	findHighest(const GradeType array, int size)
 
 int	findLowest(const GradeType array, int size)
 {
+    // Fill in the code for this function
+    int lowest = INT_MAX;
+    for (int i = 0; i < size; i++)
+        if (array[i] < lowest)
+            lowest = array[i];
+
+    return lowest;
+
+
 	// Fill in the code for this function
 }

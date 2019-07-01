@@ -68,14 +68,16 @@ int main()
 			cout << endl << "Please input a grade" << endl;
 
 			// Fill in the input statement to place grade in the array
+			cin >> grades[count];
 		}
 
 		cout << firstname << " " << lastname << " has an average of ";
 
 		// Fill in code to get and print average of student to screen
-
+        double avg = findGradeAvg(grades, numOfGrades);
+		cout << avg << flush;
 		// Fill in call to get and print letter grade of student to screen
-
+        cout << " The letter grade is : " << findLetterGrade(avg) << flush;
 		cout << endl << endl << endl;
 
 		cout << "Please input a y if you want to input more students"
@@ -100,6 +102,10 @@ int main()
 float findGradeAvg(GradeType array, int numGrades)
 {
 	// Fill in the code for this function
+	float sum = 0;
+	for (int i = 0; i < numGrades; i++)
+	    sum += array[i];
+	return sum/numGrades;
 }
 
 //***********************************************************************
@@ -117,4 +123,14 @@ float findGradeAvg(GradeType array, int numGrades)
 char findLetterGrade(float numGrade)
 {
 	// Fill in the code for this function
+    if (numGrade >= 90)
+        return 'A';
+    else if (numGrade >= 80)
+        return 'B';
+    else if (numGrade >= 70)
+        return 'C';
+    else if (numGrade >= 60)
+        return 'D';
+    else
+        return 'F';
 }
